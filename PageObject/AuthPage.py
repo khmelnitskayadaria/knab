@@ -37,3 +37,9 @@ class AuthPage(BasePage):
     @allure.step("Click on Log in button")
     def click_login_button(self):
         return self.driver.find_element(*AuthPageLocators.LOGIN_BUTTON).click()
+
+    def full_authorization_flow(self, email, password):
+        self.enter_email(email)
+        self.click_go_button()
+        self.enter_password(password)
+        self.click_login_button()

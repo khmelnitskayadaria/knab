@@ -1,5 +1,4 @@
-from asyncio import sleep
-
+import allure
 from selenium.webdriver.common.by import By
 
 from PageObject.Base import BasePage
@@ -17,12 +16,13 @@ class BoardPageLocators():
 class BoardPage(BasePage):
     """Board page action methods come here"""
 
+    @allure.step("Click on create board title")
     def find_title(self):
         find_title = self.find_element(BoardPageLocators.BOARD_NAME)
         return find_title
 
+    @allure.step("Change board title")
     def change_title(self, title):
-        sleep(10)
         find_title = self.find_element(BoardPageLocators.BOARD_NAME)
         self.driver.move_to_element(find_title)
         find_title.click()

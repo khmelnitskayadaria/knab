@@ -6,7 +6,7 @@ class BasePage:
 
     def __init__(self, driver):
         self.driver = driver
-        # self.base_url = "https://trello.com/login"
+        self.base_url = "https://trello.com/login"
 
     def find_element(self, locator, time=10):
         return WebDriverWait(self.driver, time).until(EC.presence_of_element_located(locator),
@@ -17,5 +17,5 @@ class BasePage:
                                                       message=f"Can't find elements by locator {locator}")
 
     def go_to_site(self):
-        return self.driver.get("https://trello.com/login")
+        return self.driver.get(self.base_url)
 

@@ -1,7 +1,8 @@
 from PageObject.Base import BasePage
 import requests
 
-
+api_key = ''
+token = ''
 
 
 class ApiActions(BasePage):
@@ -26,9 +27,7 @@ class ApiActions(BasePage):
         url = response['url']
         return url
 
-    def delete_new_board(self, value):
-        str_url = self.driver.getCurrentUrl()
-        url = str_url.replace("https://trello.com/b/", "").replace(f"/{value}", "")
+    def delete_new_board(self, url):
         query = {
              'key': api_key,
             'token': token
